@@ -1,0 +1,14 @@
+{
+  "name": "example-cli",
+  "displayName": "Example CLI Adapter",
+  "command": "example-model-cli",
+  "args": ["--model", "example-model", "--json"],
+  "models": ["example-model"],
+  "supportsStreaming": false,
+  "supportsSessions": true,
+  "healthCheck": {
+    "command": "example-model-cli",
+    "args": ["--version"],
+    "timeoutMs": 5000
+  }
+}
