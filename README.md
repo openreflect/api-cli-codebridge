@@ -1,6 +1,6 @@
-# CLI Wrapper
+# API CLI Codebridge
 
-CLI Wrapper is a thin adapter framework for exposing local coding-model CLIs through stable API-style interfaces. It is intended for tools that can call an HTTP provider but need to reach local CLIs with their own authentication, session state, and runtime behavior.
+API CLI Codebridge is a thin adapter framework for exposing local coding-model CLIs through stable API-style interfaces. It is intended for tools that can call an HTTP provider but need to reach local CLIs with their own authentication, session state, and runtime behavior.
 
 The goal is not to hide the CLI. The goal is to make each CLI lane inspectable, health-checkable, and easy to route through a common interface.
 
@@ -16,7 +16,7 @@ This project captures the public generic pattern for wrapping CLIs behind a smal
 OpenAI-style client
         |
         v
-CLI Wrapper
+API CLI Codebridge
         |
         +--> Claude-style CLI adapter
         +--> Gemini-style CLI adapter
@@ -26,7 +26,7 @@ CLI Wrapper
 
 Each adapter owns only deterministic translation: request shape, process invocation, session binding, health checks, and response normalization.
 
-## What CLI Wrapper manages
+## What API CLI Codebridge manages
 
 - CLI adapter manifests.
 - Public-safe request and response contracts.
@@ -74,6 +74,6 @@ python3 scripts/validate_manifest.py examples/adapter-manifest.example.json
 Use this repository as the generic upstream. Keep local CLI binary paths, credential references, live model aliases, proof logs, and runtime routing configuration in private downstream repositories or private branches.
 
 ```text
-ORG/cli-wrapper         public generic framework
+ORG/api-cli-codebridge public generic framework
 private downstream fork local adapters, credentials, deployment, logs
 ```
