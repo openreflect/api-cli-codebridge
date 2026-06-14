@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a public-safe Model CLI Gateway adapter manifest."""
+"""Validate a public-safe CLI Wrapper adapter manifest."""
 
 from __future__ import annotations
 

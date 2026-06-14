@@ -2,7 +2,7 @@
 
 ## Intent
 
-Validate that a Model CLI Gateway adapter manifest has the required public-safe fields before it is used by an agent or runtime.
+Validate that a CLI Wrapper adapter manifest has the required public-safe fields before it is used by an agent or runtime.
 
 ## Inputs
 

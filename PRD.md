@@ -1,8 +1,8 @@
-# Model CLI Gateway PRD
+# CLI Wrapper PRD
 
 ## Summary
 
-Model CLI Gateway provides a reusable public framework for wrapping local model CLIs behind stable API-style contracts. It starts with adapter manifests, health checks, and response normalization rules before adding production server code.
+CLI Wrapper provides a reusable public framework for wrapping local model CLIs behind stable API-style contracts. It starts with adapter manifests, health checks, and response normalization rules before adding production server code.
 
 ## Problem
 
