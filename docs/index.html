@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="API CLI Codebridge: a small adapter framework for exposing local coding-model CLIs through stable API-style interfaces."
+    />
+    <title>API CLI Codebridge</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="./">API CLI Codebridge</a>
+        <div class="nav-links">
+          <a href="#why">Why</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#status">Status</a>
+          <a href="https://github.com/openreflect/api-cli-codebridge">GitHub</a>
+        </div>
+      </nav>
+      <section class="hero">
+        <p class="eyebrow">OpenReflect public framework</p>
+        <h1>Stable API contracts for local model CLIs.</h1>
+        <p class="lede">
+          API CLI Codebridge defines the adapter layer between API-first clients
+          and command-line model tools with their own auth, process behavior,
+          session state, and streaming shape.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/openreflect/api-cli-codebridge">View repository</a>
+          <a class="button secondary" href="#quickstart">Run the validator</a>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section id="why" class="band">
+        <div class="section-copy">
+          <p class="eyebrow">Why it exists</p>
+          <h2>Local CLIs are useful. Runtime contracts need to be predictable.</h2>
+        </div>
+        <div class="grid two">
+          <article>
+            <h3>The problem</h3>
+            <p>
+              Coding-model CLIs often provide the most practical access path for
+              authenticated or subscription-backed tools. Agent runtimes usually
+              need a smaller, steadier provider interface.
+            </p>
+          </article>
+          <article>
+            <h3>The shape</h3>
+            <p>
+              Codebridge keeps each adapter explicit: manifest, invocation,
+              health check, model list, streaming support, and session behavior.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="architecture" class="band contrast">
+        <div class="section-copy">
+          <p class="eyebrow">Core idea</p>
+          <h2>A thin bridge, not a hidden runtime.</h2>
+        </div>
+        <pre class="diagram" aria-label="Architecture diagram"><code>OpenAI-style client
+        |
+        v
+API CLI Codebridge
+        |
+        +--> Claude-style CLI adapter
+        +--> Gemini-style CLI adapter
+        +--> Codex-style CLI adapter
+        +--> other local model CLI adapters</code></pre>
+        <p>
+          Each adapter owns deterministic translation: request shape, process
+          invocation, session binding, health checks, and response normalization.
+        </p>
+      </section>
+
+      <section class="band">
+        <div class="section-copy">
+          <p class="eyebrow">Scope</p>
+          <h2>What Codebridge manages</h2>
+        </div>
+        <div class="grid three">
+          <article>
+            <h3>Adapter manifests</h3>
+            <p>Public-safe configuration for commands, models, capabilities, and health checks.</p>
+          </article>
+          <article>
+            <h3>Contract checks</h3>
+            <p>Deterministic validation before any private credential or live deployment is involved.</p>
+          </article>
+          <article>
+            <h3>Normalization</h3>
+            <p>A path toward consistent model listing, chat completion, streaming, and session semantics.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="quickstart" class="band contrast">
+        <div class="section-copy">
+          <p class="eyebrow">Quickstart</p>
+          <h2>Validate the synthetic adapter manifest.</h2>
+        </div>
+        <pre class="command"><code>git clone https://github.com/openreflect/api-cli-codebridge.git
+cd api-cli-codebridge
+python3 scripts/validate_manifest.py examples/adapter-manifest.example.json</code></pre>
+        <p class="result">Expected result: <code>MANIFEST_OK</code></p>
+      </section>
+
+      <section id="status" class="band">
+        <div class="section-copy">
+          <p class="eyebrow">Current status</p>
+          <h2>Early public framework, deliberately small.</h2>
+        </div>
+        <p>
+          The repository currently contains the public-safe project shape, a
+          synthetic adapter manifest, a deterministic validator, and this static
+          documentation site. Private deployment paths, credential references,
+          live routing policy, and original operational wrappers belong in
+          private downstream workspaces.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>API CLI Codebridge</span>
+      <a href="https://github.com/openreflect/api-cli-codebridge">GitHub</a>
+    </footer>
+  </body>
+</html>

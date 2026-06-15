@@ -69,6 +69,9 @@ Run the public-safe check:
 python3 scripts/validate_manifest.py examples/adapter-manifest.example.json
 ```
 
+The GitHub Pages site is a static public overview in `docs/`. It can be
+published from the `docs/` folder on `main`.
+
 ## Public/private model
 
 Use this repository as the generic upstream. Keep local CLI binary paths, credential references, live model aliases, proof logs, and runtime routing configuration in private downstream repositories or private branches.
