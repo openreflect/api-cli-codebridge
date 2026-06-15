@@ -26,6 +26,8 @@ Model CLIs are often the most practical access path for subscription-backed or l
 - Adapter manifest schema.
 - Manifest validator.
 - Example synthetic adapter.
+- Example synthetic memory-backend adapter manifest.
+- Memory envelope, result, and audit event schemas.
 - Documentation for public/private separation.
 - Design notes for future HTTP gateway implementation.
 
@@ -36,3 +38,4 @@ Model CLIs are often the most practical access path for subscription-backed or l
 - Process supervision and timeout policy.
 - Session store abstraction.
 - Streaming contract tests.
+- Memory fabric router extension for semantic memory operations across tool-call, API, and file/index backends. See `docs/memory-fabric-routing.md`.

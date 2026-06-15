@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openreflect.org/schemas/api-cli-codebridge/memory-audit-event.schema.json",
+  "title": "MemoryAuditEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "operationId",
+    "timestamp",
+    "caller",
+    "intent",
+    "source",
+    "policy",
+    "routeDecision",
+    "backendCalls"
+  ],
+  "properties": {
+    "operationId": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "caller": {
+      "type": "string"
+    },
+    "intent": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "routeDecision": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "backendCalls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  }
+}

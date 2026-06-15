@@ -1,1 +1,3 @@
 reference/original-wrappers/
+__pycache__/
+*.pyc

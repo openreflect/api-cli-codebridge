@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openreflect.org/schemas/api-cli-codebridge/memory-envelope.schema.json",
+  "title": "MemoryEnvelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "operationId",
+    "operation",
+    "intent",
+    "source",
+    "scope",
+    "privacy",
+    "durability",
+    "createdAt"
+  ],
+  "properties": {
+    "operationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operation": {
+      "type": "string",
+      "enum": ["read", "write", "search", "index", "audit"]
+    },
+    "intent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content": {},
+    "query": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["surface"],
+      "properties": {
+        "surface": {
+          "type": "string",
+          "minLength": 1
+        },
+        "conversationId": {
+          "type": "string"
+        },
+        "messageId": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["conversation", "project", "user", "organization", "public", "private"]
+    },
+    "privacy": {
+      "type": "string",
+      "enum": ["public-safe", "private-workspace", "credential-adjacent", "sensitive"]
+    },
+    "durability": {
+      "type": "string",
+      "enum": ["ephemeral", "session", "long-term", "source-controlled", "indexed"]
+    },
+    "routingHints": {
+      "type": "object"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "write"
+          }
+        },
+        "required": ["operation"]
+      },
+      "then": {
+        "required": ["content"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "enum": ["read", "search"]
+          }
+        },
+        "required": ["operation"]
+      },
+      "then": {
+        "required": ["query"]
+      }
+    }
+  ]
+}

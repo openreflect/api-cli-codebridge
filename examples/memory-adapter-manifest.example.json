@@ -1,0 +1,37 @@
+{
+  "id": "lossless-claw",
+  "displayName": "Lossless Claw Conversation Recall",
+  "kind": "memory-backend",
+  "transport": "tool-call",
+  "capabilities": {
+    "read": true,
+    "write": false,
+    "search": true,
+    "index": false,
+    "conversationRecall": true,
+    "semanticSearch": false,
+    "structuredObjects": false
+  },
+  "operations": {
+    "conversationRecall": {
+      "nativeName": "lcm_expand_query",
+      "requiredFields": ["query", "prompt"],
+      "returns": "MemoryResult"
+    },
+    "conversationSearch": {
+      "nativeName": "lcm_grep",
+      "requiredFields": ["query"],
+      "returns": "MemoryResult"
+    }
+  },
+  "policy": {
+    "defaultScope": "conversation",
+    "requiresProvenance": true,
+    "allowWrites": false
+  },
+  "healthCheck": {
+    "mode": "tool-available",
+    "operation": "lcm_grep",
+    "timeoutMs": 5000
+  }
+}

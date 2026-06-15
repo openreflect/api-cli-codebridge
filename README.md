@@ -1,5 +1,9 @@
 # API CLI Codebridge
 
+Wrap your Coding CLI with an OpenAI API server: use Claude Code as an
+OpenAI-compatible API, bridge GCP Vertex to Gemini, or expose Codex CLI through
+a stable API-compatible lane.
+
 API CLI Codebridge is a thin adapter framework for exposing local coding-model CLIs through stable API-style interfaces. It is intended for tools that can call an HTTP provider but need to reach local CLIs with their own authentication, session state, and runtime behavior.
 
 The goal is not to hide the CLI. The goal is to make each CLI lane inspectable, health-checkable, and easy to route through a common interface.
@@ -35,6 +39,10 @@ Each adapter owns only deterministic translation: request shape, process invocat
 - Streaming and non-streaming response normalization.
 - Synthetic fixtures for adapter validation.
 
+## Related architecture notes
+
+- [Memory Fabric Routing and Call Interception](docs/memory-fabric-routing.md) describes how the same adapter pattern can intercept semantic memory operations, route them across tool-call, API, and file/index backends, and preserve provenance.
+
 ## Design principles
 
 - Keep adapters small and auditable.
@@ -51,11 +59,16 @@ Each adapter owns only deterministic translation: request shape, process invocat
 ├── PRD.md
 ├── docs/
 ├── examples/
-│   └── adapter-manifest.example.json
+│   ├── adapter-manifest.example.json
+│   └── memory-adapter-manifest.example.json
 ├── prompts/
 │   └── validate-manifest.prompt.md
 ├── scripts/
 │   └── validate_manifest.py
+├── schemas/
+│   ├── memory-audit-event.schema.json
+│   ├── memory-envelope.schema.json
+│   └── memory-result.schema.json
 └── tests/
 ```
 
@@ -67,6 +80,7 @@ Run the public-safe check:
 
 ```bash
 python3 scripts/validate_manifest.py examples/adapter-manifest.example.json
+python3 scripts/validate_manifest.py examples/memory-adapter-manifest.example.json
 ```
 
 The GitHub Pages site is a static public overview in `docs/`. It can be

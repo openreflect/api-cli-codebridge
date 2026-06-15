@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openreflect.org/schemas/api-cli-codebridge/memory-result.schema.json",
+  "title": "MemoryResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["operationId", "status", "items", "provenance"],
+  "properties": {
+    "operationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ok", "partial", "blocked", "error"]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["backend", "content"],
+        "properties": {
+          "backend": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content": {},
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "freshness": {
+            "type": "string"
+          },
+          "nativeReference": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["routeDecision", "backendCalls"],
+      "properties": {
+        "routeDecision": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "backendCalls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["backend", "status"],
+            "properties": {
+              "backend": {
+                "type": "string"
+              },
+              "nativeOperation": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "error": {
+      "type": "string"
+    }
+  }
+}
