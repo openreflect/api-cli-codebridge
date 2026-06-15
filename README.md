@@ -42,6 +42,7 @@ Each adapter owns only deterministic translation: request shape, process invocat
 ## Related architecture notes
 
 - [Memory Fabric Routing and Call Interception](docs/memory-fabric-routing.md) describes how the same adapter pattern can intercept semantic memory operations, route them across tool-call, API, and file/index backends, and preserve provenance.
+- [Implementation Roadmap](docs/implementation-roadmap.md) breaks the framework into small build slices that can be tested independently.
 
 ## Design principles
 
