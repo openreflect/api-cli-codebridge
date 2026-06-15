@@ -24,7 +24,7 @@ You are reviewing the API CLI Codebridge project as an external senior systems a
 Use maximum available reasoning effort. Be technical, objective, skeptical, and concrete. Do not flatter the premise. Do not summarize the documents generically. Validate the I/O model and access-virtualization model as if this were going to become real infrastructure.
 
 Workspace:
-  /home/alice/.openclaw/workspace/projects/api-cli-codebridge
+  path/to/api-cli-codebridge
 
 Primary files to inspect:
   README.md
