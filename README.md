@@ -2,7 +2,7 @@
 
 Wrap your Coding CLI with an OpenAI API server: use Claude Code as an
 OpenAI-compatible API, bridge GCP Vertex to Gemini, or expose Codex CLI through
-a stable API-compatible lane.
+a stable API-compatible lane. When direct to API is not right, turn your cli into an openai API.  We have all done it at one point. 
 
 API CLI Codebridge is a thin adapter framework for exposing local coding-model CLIs through stable API-style interfaces. It is intended for tools that can call an HTTP provider but need to reach local CLIs with their own authentication, session state, and runtime behavior.
 
